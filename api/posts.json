@@ -1,0 +1,310 @@
+{
+  "posts": [
+    {
+      "id": 1, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11qpl0/this_is_why_they_call_it_a_weaklyordered_cpu/", 
+      "title": "This Is Why They Call It a Weakly-Ordered CPU"
+    }, 
+    {
+      "id": 2, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11qfdr/transfusive_image_manipulation/", 
+      "title": "Transfusive Image Manipulation"
+    }, 
+    {
+      "id": 3, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11qsa6/quantitative_analysis_of_the_full_bitcoin/", 
+      "title": "Quantitative Analysis of the Full Bitcoin Transaction Graph"
+    }, 
+    {
+      "id": 4, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11qh07/the_convoluted_history_of_opengl_and_d3d/", 
+      "title": "The convoluted history of OpenGL and D3D"
+    }, 
+    {
+      "id": 5, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11qfga/stop_measuring_gpu_efficiency_upsidedown/", 
+      "title": "Stop measuring GPU efficiency upside-down"
+    }, 
+    {
+      "id": 6, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11qocy/gpuaccelerated_path_rendering_siggraph_asia_2012/", 
+      "title": "GPU-accelerated Path Rendering [SIGGRAPH Asia 2012]"
+    }, 
+    {
+      "id": 7, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11qv0w/techniques_for_fast_python_and_haskell_slides/", 
+      "title": "Techniques for Fast Python and Haskell: slides from Reaktor Dev Day"
+    }, 
+    {
+      "id": 8, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11p1s8/json_editor_online_view_edit_and_format_json/", 
+      "title": "JSON Editor Online - view, edit and format JSON online"
+    }, 
+    {
+      "id": 9, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11r686/go_talks_2012_new_slides/", 
+      "title": "Go Talks 2012 (New Slides)"
+    }, 
+    {
+      "id": 10, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11r5wp/spark_060_released/", 
+      "title": "Spark 0.6.0 released"
+    }, 
+    {
+      "id": 11, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11qaaq/xkcdstyle_charts_with_d3/", 
+      "title": "XKCD-style charts with D3"
+    }, 
+    {
+      "id": 12, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11p7wu/my_free_ebook_a_primer_on_sql/", 
+      "title": "My free ebook - A Primer on SQL"
+    }, 
+    {
+      "id": 13, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11oz84/assembly_compiler/", 
+      "title": "Assembly compiler"
+    }, 
+    {
+      "id": 14, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11rd56/structuring_clientside_javascript_code/", 
+      "title": "Structuring Client-side JavaScript code"
+    }, 
+    {
+      "id": 15, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11rc1o/series_introduction_01_channel_9/", 
+      "title": "Series Introduction - 01 (Channel 9)"
+    }, 
+    {
+      "id": 16, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11q4kc/an_introduction_to_graphviz_via_r_kellys_trapped/", 
+      "title": "An Introduction to Graphviz via R. Kelly\u2019s \u201cTrapped in the Closet\u201d Hip Hopera"
+    }, 
+    {
+      "id": 17, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11pwfp/the_internet_is_quickly_being_filled_with_apis/", 
+      "title": "The Internet is quickly being filled with APIs based on JSON that may be or may become quite brittle."
+    }, 
+    {
+      "id": 18, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11pevu/such_a_little_thing_the_semicolon_in_rust/", 
+      "title": "Such a Little Thing: The Semicolon in Rust"
+    }, 
+    {
+      "id": 19, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11p88l/redis_from_inside_postgres/", 
+      "title": "Redis from inside Postgres"
+    }, 
+    {
+      "id": 20, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11qp91/difference_between_trycast_and_directcast/", 
+      "title": "Difference between TryCast and DirectCast"
+    }, 
+    {
+      "id": 21, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11ot7d/ip_geolocation_services_showdown/", 
+      "title": "IP Geolocation Services Showdown"
+    }, 
+    {
+      "id": 22, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11pgn2/parson_small_and_simple_json_parserreader_written/", 
+      "title": "Parson - small and simple JSON parser/reader written in C"
+    }, 
+    {
+      "id": 23, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11ocw8/things_i_wish_i_knew_about_mongodb_a_year_ago/", 
+      "title": "Things I Wish I Knew About MongoDB A Year Ago"
+    }, 
+    {
+      "id": 24, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11p3zq/jquery_rain_a_huge_collection_of_jquery_plugins/", 
+      "title": "jQuery Rain - A huge collection of jQuery Plugins and Tutorials"
+    }, 
+    {
+      "id": 25, 
+      "source": "reddit", 
+      "link": "http://www.reddit.com/r/programming/comments/11p0do/even_stranger_than_expected_a_systematic_look_at/", 
+      "title": "Even Stranger than Expected: a Systematic Look at Amazon EC2 I/O"
+    }, 
+    {
+      "id": 26, 
+      "source": "nytimes", 
+      "link": "http://www.nytimes.com/2012/10/20/world/middleeast/bomb-blast-in-beirut-lebanon.html?partner=rss&emc=rss", 
+      "title": "Beirut Blast Kills at Least 8, Including Top Security Official"
+    }, 
+    {
+      "id": 27, 
+      "source": "nytimes", 
+      "link": "http://www.nytimes.com/2012/10/19/world/middleeast/turkey-and-egypt-look-to-team-up-amid-tumult.html?partner=rss&emc=rss", 
+      "title": "Turkey and Egypt Look to Team Up Amid Tumult"
+    }, 
+    {
+      "id": 28, 
+      "source": "nytimes", 
+      "link": "http://thelede.blogs.nytimes.com/2012/10/19/on-twitter-videos-and-photos-of-the-aftermath-of-the-beirut-bombing/?partner=rss&emc=rss", 
+      "title": "The Lede Blog: On Twitter, Videos and Photos of the Aftermath of the Beirut Bombing"
+    }, 
+    {
+      "id": 29, 
+      "source": "nytimes", 
+      "link": "http://fivethirtyeight.blogs.nytimes.com/2012/10/19/oct-18-obama-gains-in-forecast-on-resiliency-in-swing-state-polls/?partner=rss&emc=rss", 
+      "title": "FiveThirtyEight: Oct. 18: Obama Gains in Forecast on Resiliency in Swing State Polls"
+    }, 
+    {
+      "id": 30, 
+      "source": "nytimes", 
+      "link": "http://www.nytimes.com/2012/10/21/sunday-review/candidates-and-the-truth-about-america.html?partner=rss&emc=rss", 
+      "title": "News Analysis: Candidates and the Truth About America"
+    }, 
+    {
+      "id": 31, 
+      "source": "nytimes", 
+      "link": "http://www.nytimes.com/video/2012/10/19/arts/100000001855208/the-sweet-spot-october-19-2012.html?partner=rss&emc=rss", 
+      "title": "ARTS: The Sweet Spot | October 19, 2012"
+    }, 
+    {
+      "id": 32, 
+      "source": "nytimes", 
+      "link": "http://www.nytimes.com/2012/10/20/world/europe/pakistani-schoolgirl-shot-by-taliban-showing-progress.html?partner=rss&emc=rss", 
+      "title": "Pakistani Schoolgirl Shot By Taliban Showing Progress"
+    }, 
+    {
+      "id": 33, 
+      "source": "nytimes", 
+      "link": "http://www.nytimes.com/2012/10/21/magazine/what-happens-in-brooklyn-moves-to-vegas.html?partner=rss&emc=rss", 
+      "title": "What Happens in Brooklyn Moves to Vegas"
+    }, 
+    {
+      "id": 34, 
+      "source": "nytimes", 
+      "link": "http://www.nytimes.com/2012/10/19/business/a-computer-lesson-from-1987-still-unlearned-by-wall-street.html?partner=rss&emc=rss", 
+      "title": "High & Low Finance: A Computer Lesson From 1987, Still Unlearned by Wall Street"
+    }, 
+    {
+      "id": 35, 
+      "source": "nytimes", 
+      "link": "http://www.nytimes.com/2012/10/20/world/asia/curfew-imposed-on-american-troops-in-japan.html?partner=rss&emc=rss", 
+      "title": "Curfew Imposed on American Troops in Japan"
+    }, 
+    {
+      "id": 36, 
+      "source": "nytimes", 
+      "link": "http://www.nytimes.com/2012/10/19/business/global/at-the-eu-summit-a-focus-on-cohesion.html?partner=rss&emc=rss", 
+      "title": "Leaders Say They Expect Agreement on Aid for Spanish Banks"
+    }, 
+    {
+      "id": 37, 
+      "source": "nytimes", 
+      "link": "http://www.nytimes.com/2012/10/20/world/middleeast/soldiers-and-insurgents-killed-in-yemen-battle.html?partner=rss&emc=rss", 
+      "title": "14 Soldiers and 12 Insurgents Killed in Battle in Yemen"
+    }, 
+    {
+      "id": 38, 
+      "source": "nytimes", 
+      "link": "http://www.nytimes.com/2012/10/17/business/media/jill-abramson-executive-editor-answers-questions.html?partner=rss&emc=rss", 
+      "title": "Talk to The Times: Jill Abramson, Executive Editor, Answers Questions"
+    }, 
+    {
+      "id": 39, 
+      "source": "nytimes", 
+      "link": "http://www.nytimes.com/2012/10/24/dining/an-autumnal-meal-of-chicken-thighs-and-delicata-squash.html?partner=rss&emc=rss", 
+      "title": "A Good Appetite: An Autumnal Meal of Chicken Thighs and Delicata Squash"
+    }, 
+    {
+      "id": 40, 
+      "source": "slate", 
+      "link": "http://feeds.slate.com/click.phdo?i=8c76c25eae236013a86338bb835a518a", 
+      "title": "What Is War Good for? Ask a Chimpanzee."
+    }, 
+    {
+      "id": 41, 
+      "source": "slate", 
+      "link": "http://feeds.slate.com/click.phdo?i=8f5c42262d44e69aeacb7f2977ace817", 
+      "title": "The 2012 Campaign Decoder"
+    }, 
+    {
+      "id": 42, 
+      "source": "slate", 
+      "link": "http://ads.pheedo.com/click.phdo?s=8f5c42262d44e69aeacb7f2977ace817&p=4", 
+      "title": "Advertisement:"
+    }, 
+    {
+      "id": 43, 
+      "source": "slate", 
+      "link": "http://feeds.slate.com/click.phdo?i=9daffc032660145c15d9e32df2b62968", 
+      "title": "Talking to Justice Ruth Bader Ginsburg"
+    }, 
+    {
+      "id": 44, 
+      "source": "slate", 
+      "link": "http://ads.pheedo.com/click.phdo?s=9daffc032660145c15d9e32df2b62968&p=4", 
+      "title": "Advertisement:"
+    }, 
+    {
+      "id": 45, 
+      "source": "slate", 
+      "link": "http://feeds.slate.com/click.phdo?i=6e0723ba946bdf82f85441cd67c317e1", 
+      "title": "Wisconsin Pride"
+    }, 
+    {
+      "id": 46, 
+      "source": "slate", 
+      "link": "http://feeds.slate.com/click.phdo?i=3fcd5f366793e22bf36b0a8c773f166e", 
+      "title": "We\u2019re Looking for Spring Interns"
+    }, 
+    {
+      "id": 47, 
+      "source": "slate", 
+      "link": "http://feeds.slate.com/click.phdo?i=9b23c11eca0ac508200df4a8ff8531ba", 
+      "title": "Boss Dana Stevens Around"
+    }, 
+    {
+      "id": 48, 
+      "source": "slate", 
+      "link": "http://feeds.slate.com/click.phdo?i=22281f888185709a668874f293b71ff8", 
+      "title": "Thomas Jefferson Was Not a Monster"
+    }, 
+    {
+      "id": 49, 
+      "source": "slate", 
+      "link": "http://feeds.slate.com/click.phdo?i=f74cfc285018bd41a691168a0efd8742", 
+      "title": "Sleaze-en-sc&egrave;ne"
+    }, 
+    {
+      "id": 50, 
+      "source": "slate", 
+      "link": "http://feeds.slate.com/click.phdo?i=6619ecbd427cf34adf3c00b3de73b85d", 
+      "title": "Play the \nSlate News\n Quiz"
+    }, 
+    {
+      "id": 51, 
+      "source": "slate", 
+      "link": "http://feeds.slate.com/click.phdo?i=40ffcfa40d5845cbe97a00a95d224f69", 
+      "title": "Corrections"
+    }
+  ]
+}
