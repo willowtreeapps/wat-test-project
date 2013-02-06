@@ -1,0 +1,101 @@
+body {
+    width:100%;
+    text-align:center;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+h1 {
+    font-size:40px !important;
+    font-weight:700 !important;
+}
+
+h2 {
+    font-size:28px !important;
+}
+
+a {
+    color: #87adfc;
+}
+
+#header section {
+    margin:15px 0;
+}
+
+#header #search {
+    font-size:80%;
+    font-weight:normal;
+    font-family:sans-serif;
+    color:#ccc;
+    padding-left:4px;
+}
+
+#header .button {
+    margin-left:15px;
+    padding:0 10px;
+}
+
+
+input.searching {
+    color:#000 !important;
+}
+
+div#theapp {
+    margin:20px 20px;
+}
+
+ul#articles {
+    max-width: 700px;
+    width:auto;
+    margin: 20px auto;
+    display:block;
+}
+
+li article {
+   margin:35px 0;
+   padding:20px;
+    -moz-box-shadow: 0 0 3px 3px #ccc;
+    -webkit-box-shadow: 0 0 3px 3px #ccc;
+    box-shadow: 0 0 3px 3px #ccc;
+}
+
+li article:hover,
+li.selected {
+    -moz-box-shadow: 0 0 7px 7px #ccc;
+    -webkit-box-shadow: 0 0 7px 7px #ccc;
+    box-shadow: 0 0 7px 7px #ccc;
+}
+
+li div.article-body {
+    margin-top:20px;
+    font-size:16px;
+    display:none;
+}
+
+li.selected div.article-body {
+    display:block;
+}
+
+div.article-body p {
+    margin: 10px 0;
+    text-align: left;
+}
+
+li article footer {
+    text-align:right;
+    margin-top:20px;
+}
+
+li article footer div {
+    margin:0 10px;
+    display:inline-block;
+}
+
+li article footer div a,
+#restoreTrash
+{
+    cursor:pointer;
+}
+
+#restoreTrash {
+    margin-left:15px;
+}
