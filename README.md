@@ -10,9 +10,9 @@ Present the user with five faces and ask them to identify the listed name. This 
 2. Reverse mode, Show five names with one picture.
 3. Keyboard shortcuts. Power users love keyboard shortcuts, maybe add numbers for faces for mouse free fun. Bonus points for Vim shortcuts. Negative points for Emacs**.
 4. Local Scoring. The server might not accept scores, but you can always track it locally. Make metrics of your own and have a leader board!
-5. Mat(t) Mode. Roughly 90% of our co-workers are named Mat(t), add a challenge mode where you only present the users with A Mat(t).
+5. Mat(t) Mode. Roughly 90% of our co-workers are named Mat(t), so add a challenge mode where you only present the users with A Mat(t).
 6. Hint mode. As people wait, faces disappear until only the correct one is left.
-7. Insert your idea own here!
+7. Insert your own idea here!
 
 
 ## Option 2
