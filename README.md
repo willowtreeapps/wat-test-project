@@ -1,6 +1,6 @@
 # The Namegame
 
-Leading scientists have proven, via science, that learning your coworkers names while starting a new job is useful. Your test project is to make it happen! We have a simple version hosted at [namegame.willowtreemobile.com](http://namegame.willowtreemobile.com/) which you can test. The api is located at [namegame.willowtreemobile.com:2000](http://namegame.willowtreemobile.com:2000).
+Leading scientists have proven, via science, that learning your coworkers names while starting a new job is useful. Your test project is to make it happen! We have a simple version hosted at [namegame.willowtreemobile.com](http://namegame.willowtreemobile.com/) which you can test. The api is located at [http://api.namegame.willowtreemobile.com/](http://api.namegame.willowtreemobile.com/).
 
 ## Option 1
 
