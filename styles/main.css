@@ -1,3 +1,7 @@
 #index .container {
 	margin-top: 50px;
 }
+
+.image-wrapper {
+	text-align: center;
+}
