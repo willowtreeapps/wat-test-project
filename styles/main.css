@@ -7,6 +7,14 @@
 	text-align: center;
 }
 
+.buttons {
+	top: 70px;
+}
+
+button {
+	width: 200px;
+}
+
 .employee {
 	position: relative;
 	max-width: 250px;
@@ -72,4 +80,8 @@
 	padding-top: 200px;
 	animation-name: name-appearance;
 	animation-duration: 1s;
+}
+
+#answer {
+	display: none;
 }
