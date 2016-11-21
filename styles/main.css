@@ -1,5 +1,6 @@
-#index .container {
-	margin-top: 50px;
+.text-wrapper {
+	margin-top: 100px;
+	text-align: center;
 }
 
 .image-wrapper {
