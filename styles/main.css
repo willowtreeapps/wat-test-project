@@ -6,3 +6,51 @@
 .image-wrapper {
 	text-align: center;
 }
+
+.employee {
+	position: relative;
+	max-width: 250px;
+	max-height: 250px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.hidden-overlay {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0;
+	opacity: 0.75;
+}
+
+.incorrect-guess {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0;
+	opacity: 0.75;
+	background: #FF0000;
+}
+
+.correct-guess {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0;
+	opacity: 0.75;
+	background: #008000;
+}
+
+.hidden-name-text {
+	display: none;
+	color: #fff;
+	font-weight: bold;
+	font-size: 20px;
+	padding-top: 200px;
+}
