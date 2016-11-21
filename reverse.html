@@ -25,19 +25,19 @@
           </div>
           <div class="col-md-6 buttons" >
               <div>
-                <button id="employee-1"></button>
+                <button class="employee" id="employee-1" onclick="userGuess(this)"></button>
               </div>
               <div>
-                <button id="employee-2"></button>
+                <button class="employee" id="employee-2" onclick="userGuess(this)"></button>
               </div>
               <div>
-                <button id="employee-3"></button>
+                <button class="employee" id="employee-3" onclick="userGuess(this)"></button>
               </div>
               <div>
-                <button id="employee-4"></button>
+                <button class="employee" id="employee-4" onclick="userGuess(this)"></button>
               </div>
               <div>
-                <button id="employee-5"></button>
+                <button class="employee" id="employee-5" onclick="userGuess(this)"></button>
               </div>
           </div>
         </div>
@@ -48,25 +48,19 @@
         <script>
           renderReverse()
         </script>
-        <!-- <script>
+        <script>
           function userGuess(person){
-            var correct = document.getElementById('question').innerHTML
-            var pictureElement = person.children[0]
-            var nameElement = person.children[0].children[0]
-            var name = nameElement.innerHTML
-
+            var correct = document.getElementById('answer').innerHTML
+            var name = person.innerHTML
             if (correct === name){
-              $(`#${pictureElement.id}`).addClass('correct-guess').removeClass('hidden-overlay')
-              $(`#${nameElement.id}`).addClass('guessed-name-text').removeClass('hidden-name-text')
-              setTimeout(renderNewNames, 3000)
+              $(`#${person.id}`).addClass('correct-button')
+              setTimeout(renderReverse, 3000)
             }
             else {
-              //debugger
-              $(`#${pictureElement.id}`).addClass('incorrect-guess').removeClass('hidden-overlay')
-              $(`#${nameElement.id}`).addClass('guessed-name-text').removeClass('hidden-name-text')
+              $(`#${person.id}`).addClass('hidden')
             }
           }
-        </script> -->
+        </script>
       </div>
 
     </body>

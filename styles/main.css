@@ -55,12 +55,8 @@ button {
 	background: #008000;
 }
 
-.hidden-name-text {
+.hidden {
 	display: none;
-	color: #fff;
-	font-weight: bold;
-	font-size: 20px;
-	padding-top: 200px;
 }
 
 @keyframes name-appearance {
@@ -84,4 +80,8 @@ button {
 
 #answer {
 	display: none;
+}
+
+.correct-button {
+	font-weight: bold
 }

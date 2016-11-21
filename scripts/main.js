@@ -57,18 +57,14 @@ function renderReverse(){
         for (var person = 0; person < choices.length; person ++){
           if (choices[person].name.match(/[^A-z]$/)){
             choices[person].name = choices[person].name.slice(0,-1)
-            //debugger
           }
         }
 
-        // var employees = document.getElementsByClassName('employee')
-        //    for (var employee = 0; employee < employees.length; employee++){
-        //      var overlay = employees[employee].children[0]
-        //      var name = employees[employee].children[0].children[0]
-        //      $(`#${overlay.id}`).addClass('hidden-overlay').removeClass('incorrect-guess')
-        //      $(`#${overlay.id}`).addClass('hidden-overlay').removeClass('correct-guess')
-        //     $(`#${name.id}`).addClass('hidden-name-text').removeClass('guessed-name-text')
-        //   }
+         var employees = document.getElementsByClassName('employee')
+            for (var employee = 0; employee < employees.length; employee++){
+                var person = employees[employee]
+                $(`#${person.id}`).removeClass('hidden').removeClass('correct-button')
+              }
 
         document.getElementById('employee-pic').src = choices[0].url
 
@@ -77,7 +73,7 @@ function renderReverse(){
         choices.sort(function(){
           return 0.5 - Math.random()
         })
-        
+
         $("#employee-1").empty().append(`${choices[0].name}`)
         $("#employee-2").empty().append(`${choices[1].name}`)
         $("#employee-3").empty().append(`${choices[2].name}`)
