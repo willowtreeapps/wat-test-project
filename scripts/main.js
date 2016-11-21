@@ -1,7 +1,9 @@
 $.ajax({
     url: 'http://namegame.willowtreemobile.com:2000',
     success: function(people) {
-        $("#test").append(`${people[0].name}`);
+      people.sort(function(){
+        return 0.5 - Math.random()
+      })
 
         document.getElementById('employee-1-pic').src = people[0].url
         document.getElementById('employee-2-pic').src = people[1].url
