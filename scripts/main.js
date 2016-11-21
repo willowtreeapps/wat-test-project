@@ -6,11 +6,15 @@ $.ajax({
         return 0.5 - Math.random()
       })
 
-      var correctAnswer = [people[0], people[1], people[2], people[3], people[4]]
+      var choices = [people[0], people[1], people[2], people[3], people[4]]
 
-      correctAnswer.sort(function(){
-        return 0.5 - Math.random()
-      })
+      for (var person = 0; person < choices.length; person ++){
+        if (choices[person].name.match(/[^A-z]$/)){
+          choices[person].name = choices[person].name.slice(0,-1)
+          //debugger
+        }
+      }
+
       var employees = document.getElementsByClassName('employee')
         for (var employee = 0; employee < employees.length; employee++){
           var overlay = employees[employee].children[0]
@@ -20,19 +24,23 @@ $.ajax({
           $(`#${name.id}`).addClass('hidden-name-text').removeClass('guessed-name-text')
         }
 
-      $("#question").empty().append(`${correctAnswer[0].name}`)
+      $("#question").empty().append(`${choices[0].name}`)
 
-      document.getElementById('employee-1-pic').src = people[0].url
-      document.getElementById('employee-2-pic').src = people[1].url
-      document.getElementById('employee-3-pic').src = people[2].url
-      document.getElementById('employee-4-pic').src = people[3].url
-      document.getElementById('employee-5-pic').src = people[4].url
+      choices.sort(function(){
+        return 0.5 - Math.random()
+      })
 
-      $("#employee-1-name").empty().append(`${people[0].name}`)
-      $("#employee-2-name").empty().append(`${people[1].name}`)
-      $("#employee-3-name").empty().append(`${people[2].name}`)
-      $("#employee-4-name").empty().append(`${people[3].name}`)
-      $("#employee-5-name").empty().append(`${people[4].name}`)
+      document.getElementById('employee-1-pic').src = choices[0].url
+      document.getElementById('employee-2-pic').src = choices[1].url
+      document.getElementById('employee-3-pic').src = choices[2].url
+      document.getElementById('employee-4-pic').src = choices[3].url
+      document.getElementById('employee-5-pic').src = choices[4].url
+
+      $("#employee-1-name").empty().append(`${choices[0].name}`)
+      $("#employee-2-name").empty().append(`${choices[1].name}`)
+      $("#employee-3-name").empty().append(`${choices[2].name}`)
+      $("#employee-4-name").empty().append(`${choices[3].name}`)
+      $("#employee-5-name").empty().append(`${choices[4].name}`)
     }
   });
 };
