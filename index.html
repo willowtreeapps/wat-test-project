@@ -54,6 +54,9 @@
         <script>window.jQuery || document.write('<script src="scripts/vendor/jquery.min.js"><\/script>')</script>
         <script src="scripts/main.js"></script>
         <script>
+          renderNewNames()
+        </script>
+        <script>
           function userGuess(person){
             var correct = document.getElementById('question').innerHTML
             var pictureElement = person.children[0]
@@ -63,6 +66,7 @@
             if (correct === name){
               $(`#${pictureElement.id}`).addClass('correct-guess').removeClass('hidden-overlay')
               $(`#${nameElement.id}`).addClass('guessed-name-text').removeClass('hidden-name-text')
+              setTimeout(renderNewNames, 3000)
             }
             else {
               //debugger
