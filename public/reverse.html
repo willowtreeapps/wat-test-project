@@ -17,6 +17,7 @@
     <body>
       <div id="dropdown-menu"></div>
       <h2 class="text-wrapper">Who is this?</h2>
+      <p class="text-wrapper">You may either click the buttons or press the numbers 1-5 on your keyboard.</p>
       <p id="answer"></p>
       <div class="container">
         <div class="row">
@@ -25,19 +26,20 @@
           </div>
           <div class="col-md-6 buttons" >
               <div>
-                <button class="employee" id="employee-1" onclick="userGuess(this, window.startTime)"></button>
+                1. <button class="employee" id="employee-1" onclick="userGuess(this, window.startTime)"></button>
               </div>
               <div>
-                <button class="employee" id="employee-2" onclick="userGuess(this, window.startTime)"></button>
+
+                2. <button class="employee" id="employee-2" onclick="userGuess(this, window.startTime)"></button>
               </div>
               <div>
-                <button class="employee" id="employee-3" onclick="userGuess(this, window.startTime)"></button>
+                3. <button class="employee" id="employee-3" onclick="userGuess(this, window.startTime)"></button>
               </div>
               <div>
-                <button class="employee" id="employee-4" onclick="userGuess(this, window.startTime)"></button>
+                4. <button class="employee" id="employee-4" onclick="userGuess(this, window.startTime)"></button>
               </div>
               <div>
-                <button class="employee" id="employee-5" onclick="userGuess(this, window.startTime)"></button>
+                5. <button class="employee" id="employee-5" onclick="userGuess(this, window.startTime)"></button>
               </div>
           </div>
         </div>
@@ -66,6 +68,38 @@
           $(`#correct-guess-nums`).append(`${correctGuesses}`)
           $(`#incorrect-guess-nums`).append(`${incorrectGuesses}`)
         </script>
+        <script id="keyboard-shortcuts">
+          $(window).keypress(function(event){
+            switch(event.which){
+              case 49:
+              var employee1 = document.getElementById('employee-1')
+              userGuess(employee1, window.startTime)
+              break;
+
+              case 50:
+              var employee2 = document.getElementById('employee-2')
+              userGuess(employee2, window.startTime)
+              break;
+
+              case 51:
+              var employee3 = document.getElementById('employee-3')
+              userGuess(employee3, window.startTime)
+              break;
+
+              case 52:
+              var employee4 = document.getElementById('employee-4')
+              userGuess(employee4, window.startTime)
+              break;
+
+              case 53:
+              var employee5 = document.getElementById('employee-5')
+              userGuess(employee5, window.startTime)
+              break;
+            }
+
+          })
+
+        </script>
         <script>
           function userGuess(person, startTimeVar){
             var correct = document.getElementById('answer').innerHTML
@@ -73,7 +107,6 @@
             if (correct === name){
               var endTime = new Date()
               times.push(endTime - startTimeVar)
-              debugger
               $(`#${person.id}`).addClass('correct-button')
               correctGuesses++
               $(`#correct-guess-nums`).empty().append(`${correctGuesses}`)
@@ -87,6 +120,5 @@
           }
         </script>
       </div>
-
     </body>
 </html>

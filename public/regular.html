@@ -18,6 +18,7 @@
       <div id="dropdown-menu"></div>
       <div class="text-wrapper">
         <h2>Who is <span id="question"></span>?</h2>
+        <p>You may either click the buttons or press the numbers 1-5 on your keyboard.</p>
       </div>
       <div class="image-wrapper">
         <span id="employee-1" class="employee" onclick="userGuess(this, window.startTime)">
@@ -75,6 +76,36 @@
           $(`#correct-guess-nums`).append(`${correctGuesses}`)
           $(`#incorrect-guess-nums`).append(`${incorrectGuesses}`)
         </script>
+        <script id="keyboard-shortcuts">
+          $(window).keypress(function(event){
+            switch(event.which){
+              case 49:
+              var employee1 = document.getElementById('employee-1')
+              userGuess(employee1, window.startTime)
+              break;
+
+              case 50:
+              var employee2 = document.getElementById('employee-2')
+              userGuess(employee2, window.startTime)
+              break;
+
+              case 51:
+              var employee3 = document.getElementById('employee-3')
+              userGuess(employee3, window.startTime)
+              break;
+
+              case 52:
+              var employee4 = document.getElementById('employee-4')
+              userGuess(employee4, window.startTime)
+              break;
+
+              case 53:
+              var employee5 = document.getElementById('employee-5')
+              userGuess(employee5, window.startTime)
+              break;
+            }
+          })
+        </script>
         <script>
           function userGuess(person, startTimeVar){
             var correct = document.getElementById('question').innerHTML
@@ -97,7 +128,6 @@
               $(`#${nameElement.id}`).addClass('guessed-name-text').removeClass('hidden-name-text')
               incorrectGuesses++
               $(`#incorrect-guess-nums`).empty().append(`${incorrectGuesses}`)
-
             }
           }
       </script>
