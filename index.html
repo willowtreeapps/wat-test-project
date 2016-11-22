@@ -12,9 +12,11 @@
 
         <link rel="stylesheet" href="styles/bootstrap.css">
         <link rel="stylesheet" href="styles/main.css">
+        <link rel="import" href="public/dropdown.html">
         <script src="scripts/vendor/modernizr.min.js"></script>
     </head>
     <body id="index-page">
+      <div id="dropdown-menu"></div>
       <div class="text-wrapper">
         <h2>Who is <span id="question"></span>?</h2>
       </div>
@@ -54,6 +56,14 @@
         <script>window.jQuery || document.write('<script src="scripts/vendor/jquery.min.js"><\/script>')</script>
         <script src="scripts/main.js"></script>
         <script>
+          var link = document.querySelector('link[rel="import"]');
+          debugger
+          var template = link.import.querySelector('template');
+
+          var clone = document.importNode(template.content, true);
+          document.querySelector('#dropdown-menu').appendChild(clone);
+        </script>
+        <script>
           renderNewNames()
         </script>
         <script>
@@ -69,11 +79,12 @@
               setTimeout(renderNewNames, 3000)
             }
             else {
-              //debugger
               $(`#${pictureElement.id}`).addClass('incorrect-guess').removeClass('hidden-overlay')
               $(`#${nameElement.id}`).addClass('guessed-name-text').removeClass('hidden-name-text')
             }
           }
       </script>
+
+
     </body>
 </html>

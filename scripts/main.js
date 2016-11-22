@@ -11,7 +11,6 @@ $.ajax({
       for (var person = 0; person < choices.length; person ++){
         if (choices[person].name.match(/[^A-z]$/)){
           choices[person].name = choices[person].name.slice(0,-1)
-          //debugger
         }
       }
 
