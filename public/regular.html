@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="/styles/bootstrap.css">
         <link rel="stylesheet" href="/styles/main.css">
-        <link rel="import" href="public/dropdown.html">
+        <link rel="import" href="templates/dropdown.html">
         <script src="/scripts/vendor/modernizr.min.js"></script>
     </head>
     <body id="index-page">
@@ -51,6 +51,10 @@
             <img id='employee-5-pic' src="">
         </span>
       </div>
+      <div>
+        <h2>Correct Guesses: <span id="correct-guess-nums"></span></h2>
+        <h2>Incorrect Guesses: <span id="incorrect-guess-nums"></span></h2>
+      </div>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="/scripts/vendor/jquery.min.js"><\/script>')</script>
         <script src="/scripts/main.js"></script>
@@ -64,6 +68,12 @@
           renderNewNames()
         </script>
         <script>
+          var correctGuesses = 0
+          var incorrectGuesses = 0
+          $(`#correct-guess-nums`).append(`${correctGuesses}`)
+          $(`#incorrect-guess-nums`).append(`${incorrectGuesses}`)
+        </script>
+        <script>
           function userGuess(person){
             var correct = document.getElementById('question').innerHTML
             var pictureElement = person.children[0]
@@ -73,11 +83,16 @@
             if (correct === name){
               $(`#${pictureElement.id}`).addClass('correct-guess').removeClass('hidden-overlay')
               $(`#${nameElement.id}`).addClass('guessed-name-text').removeClass('hidden-name-text')
+              correctGuesses++
+              $(`#correct-guess-nums`).empty().append(`${correctGuesses}`)
               setTimeout(renderNewNames, 3000)
             }
             else {
               $(`#${pictureElement.id}`).addClass('incorrect-guess').removeClass('hidden-overlay')
               $(`#${nameElement.id}`).addClass('guessed-name-text').removeClass('hidden-name-text')
+              incorrectGuesses++
+              $(`#incorrect-guess-nums`).empty().append(`${incorrectGuesses}`)
+
             }
           }
       </script>

@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" href="/styles/main.css">
-        <link rel="import" href="dropdown.html">
+        <link rel="import" href="templates/dropdown.html">
         <script src="/scripts/vendor/modernizr.min.js"></script>
     </head>
     <body>
@@ -41,7 +41,12 @@
               </div>
           </div>
         </div>
+        <div>
+          <h2>Correct Guesses: <span id="correct-guess-nums"></span></h2>
+          <h2>Incorrect Guesses: <span id="incorrect-guess-nums"></span></h2>
+        </div>
       </div>
+
       <script>
         var link = document.querySelector('link[rel="import"]');
         var template = link.import.querySelector('template');
@@ -55,15 +60,26 @@
           renderReverse()
         </script>
         <script>
+          var correctGuesses = 0
+          var incorrectGuesses = 0
+          $(`#correct-guess-nums`).append(`${correctGuesses}`)
+          $(`#incorrect-guess-nums`).append(`${incorrectGuesses}`)
+        </script>
+        <script>
           function userGuess(person){
             var correct = document.getElementById('answer').innerHTML
             var name = person.innerHTML
             if (correct === name){
               $(`#${person.id}`).addClass('correct-button')
+              correctGuesses++
+              $(`#correct-guess-nums`).empty().append(`${correctGuesses}`)
+              setTimeout(renderNewNames, 3000)
               setTimeout(renderReverse, 3000)
             }
             else {
               $(`#${person.id}`).addClass('hidden')
+              incorrectGuesses++
+              $(`#incorrect-guess-nums`).empty().append(`${incorrectGuesses}`)
             }
           }
         </script>
