@@ -1,0 +1,30 @@
+<template>
+  <div class="dropdown">
+    <button onclick="selectMode()" class="dropbtn">Select Mode</button>
+    <div id="myDropdown" class="dropdown-content">
+      <a href="public/regular.html">Regular Mode</a>
+      <a href="public/reverse.html">Reverse Mode</a>
+
+    </div>
+  </div>
+  <script>
+  function selectMode() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+
+  </script>
+</template>
