@@ -25,28 +25,28 @@
           </div>
           <div class="col-md-6 buttons" >
               <div>
-                <button class="employee" id="employee-1" onclick="userGuess(this)"></button>
+                <button class="employee" id="employee-1" onclick="userGuess(this, window.startTime)"></button>
               </div>
               <div>
-                <button class="employee" id="employee-2" onclick="userGuess(this)"></button>
+                <button class="employee" id="employee-2" onclick="userGuess(this, window.startTime)"></button>
               </div>
               <div>
-                <button class="employee" id="employee-3" onclick="userGuess(this)"></button>
+                <button class="employee" id="employee-3" onclick="userGuess(this, window.startTime)"></button>
               </div>
               <div>
-                <button class="employee" id="employee-4" onclick="userGuess(this)"></button>
+                <button class="employee" id="employee-4" onclick="userGuess(this, window.startTime)"></button>
               </div>
               <div>
-                <button class="employee" id="employee-5" onclick="userGuess(this)"></button>
+                <button class="employee" id="employee-5" onclick="userGuess(this, window.startTime)"></button>
               </div>
           </div>
         </div>
         <div>
-          <h2>Correct Guesses: <span id="correct-guess-nums"></span></h2>
-          <h2>Incorrect Guesses: <span id="incorrect-guess-nums"></span></h2>
+          <h3>Correct Guesses: <span id="correct-guess-nums"></span></h3>
+          <h3>Incorrect Guesses: <span id="incorrect-guess-nums"></span></h3>
+          <h3>Average amount of time per guess: <span id="time"></span> seconds</h3>
         </div>
       </div>
-
       <script>
         var link = document.querySelector('link[rel="import"]');
         var template = link.import.querySelector('template');
@@ -58,6 +58,7 @@
         <script src="/scripts/main.js"></script>
         <script>
           renderReverse()
+          var times = [];
         </script>
         <script>
           var correctGuesses = 0
@@ -66,14 +67,16 @@
           $(`#incorrect-guess-nums`).append(`${incorrectGuesses}`)
         </script>
         <script>
-          function userGuess(person){
+          function userGuess(person, startTimeVar){
             var correct = document.getElementById('answer').innerHTML
             var name = person.innerHTML
             if (correct === name){
+              var endTime = new Date()
+              times.push(endTime - startTimeVar)
+              debugger
               $(`#${person.id}`).addClass('correct-button')
               correctGuesses++
               $(`#correct-guess-nums`).empty().append(`${correctGuesses}`)
-              setTimeout(renderNewNames, 3000)
               setTimeout(renderReverse, 3000)
             }
             else {

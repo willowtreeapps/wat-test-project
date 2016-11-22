@@ -40,11 +40,14 @@ $.ajax({
       $("#employee-3-name").empty().append(`${choices[2].name}`)
       $("#employee-4-name").empty().append(`${choices[3].name}`)
       $("#employee-5-name").empty().append(`${choices[4].name}`)
+      window.startTime = new Date();
+      averageTimes()
     }
   });
 };
 
 function renderReverse(){
+  //debugger
   $.ajax({
     url: 'http://namegame.willowtreemobile.com:2000',
     success: function(people) {
@@ -78,6 +81,22 @@ function renderReverse(){
         $("#employee-3").empty().append(`${choices[2].name}`)
         $("#employee-4").empty().append(`${choices[3].name}`)
         $("#employee-5").empty().append(`${choices[4].name}`)
+        window.startTime = new Date();
+        averageTimes()
     }
 });
+
 };
+
+function averageTimes(){
+  if (times.length > 0){
+    var sum = 0
+    for (var time = 0; time < times.length; time++){
+      sum += times[time];
+    }
+    var avg = (sum/times.length)
+    var msToSecs = (avg/1000)
+    $("#time").empty().append(msToSecs)
+  }
+  else {$("#time").append(0)}
+}
