@@ -9,7 +9,6 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-
         <link rel="stylesheet" href="styles/bootstrap.css">
         <link rel="stylesheet" href="styles/main.css">
         <link rel="import" href="public/dropdown.html">
@@ -57,9 +56,7 @@
         <script src="scripts/main.js"></script>
         <script>
           var link = document.querySelector('link[rel="import"]');
-          debugger
           var template = link.import.querySelector('template');
-
           var clone = document.importNode(template.content, true);
           document.querySelector('#dropdown-menu').appendChild(clone);
         </script>
@@ -84,7 +81,5 @@
             }
           }
       </script>
-
-
     </body>
 </html>

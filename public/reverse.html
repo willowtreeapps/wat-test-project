@@ -9,13 +9,13 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="styles/main.css">
-        <script src="scripts/vendor/modernizr.min.js"></script>
-
+        <link rel="stylesheet" href="/styles/main.css">
+        <link rel="import" href="dropdown.html">
+        <script src="/scripts/vendor/modernizr.min.js"></script>
     </head>
     <body>
+      <div id="dropdown-menu"></div>
       <h2 class="text-wrapper">Who is this?</h2>
       <p id="answer"></p>
       <div class="container">
@@ -42,9 +42,15 @@
           </div>
         </div>
       </div>
+      <script>
+        var link = document.querySelector('link[rel="import"]');
+        var template = link.import.querySelector('template');
+        var clone = document.importNode(template.content, true);
+        document.querySelector('#dropdown-menu').appendChild(clone);
+      </script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="scripts/vendor/jquery.min.js"><\/script>')</script>
-        <script src="scripts/main.js"></script>
+        <script>window.jQuery || document.write('<script src="/scripts/vendor/jquery.min.js"><\/script>')</script>
+        <script src="/scripts/main.js"></script>
         <script>
           renderReverse()
         </script>
