@@ -47,7 +47,6 @@
             <script class="question-template" type="text/x-handlebars-template">
                 <h2 id="question-text">Who is {{name}}?</h2>
                 <img src={{url}} />
-
             </script>
         </section>
 
@@ -57,6 +56,12 @@
                     <img src={{url}} name="{{name}}"" class="picture">
                     <div class="overlay {{answer}}"></div>
                     <h3 class="name-text">{{name}}</h3>
+                </div>
+            </script>
+            <script class="name-template" type="text/x-handlebars-template">
+                <div class="single-name-container">
+                    <h3 class="name-answer">{{name}}</h3>
+                    <div class="overlay {{answer}}"></div>
                 </div>
             </script>
         </section>

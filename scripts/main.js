@@ -23,15 +23,16 @@ var guessingGame = (function($, window, document) {
     gameModeListener();
   }
 
-  var $ui, $pictureContainer, $questionContainer, $defaultLink, $reverseLink, questionTemplate, pictureTemplate, list;
+  var $ui, $pictureContainer, $questionContainer, $defaultLink, $reverseLink, questionTemplate, pictureTemplate, list, nameTemplate;
   var gameMode = 'default';
 
   var cacheDom = function () {
     $ui = $('body');
     $picturesContainer = $ui.find('#pictures-container');
     $questionContainer = $ui.find('#question-container');
-    $defaultLink = $ui.find('.default')
-    $reverseLink = $ui.find('.reverse')
+    $defaultLink = $ui.find('.default');
+    $reverseLink = $ui.find('.reverse');
+    nameTemplate = Handlebars.compile($picturesContainer.find('.name-template').html());
     questionTemplate = Handlebars.compile($questionContainer.find('.question-template').html());
     pictureTemplate = Handlebars.compile($picturesContainer.find('.picture-template').html());
   }
@@ -96,9 +97,11 @@ var guessingGame = (function($, window, document) {
       e.preventDefault()
       var targetMode = $(e.target).attr('class');
       gameMode = targetMode;
+      console.log('on link click: ', gameMode)
       $reverseLink.parent().removeClass('active')
       $defaultLink.parent().removeClass('active')
       $(e.target).parent().addClass('active');
+      nextQuestion();
     })
   }
 
@@ -110,17 +113,31 @@ var guessingGame = (function($, window, document) {
   }
 
   var renderQuestion = function(person) {
-    var createdQuestion = questionTemplate({name: person.name})
+    if (gameMode === 'default') {
+      var createdQuestion = questionTemplate({name: person.name})      
+    } else {
+      var createdQuestion = questionTemplate({name: 'this', url: person.url})
+    }
+
+    console.log('on refresh', gameMode)
     $questionContainer.html(createdQuestion)
   }
 
   var renderPictures = function(chosenArr) {  
     var pictureHtml = ""
-    $.each(chosenArr, function(i, val) {
-      var answer;
-      val.correct ? answer="correct" : answer="incorrect"
-      pictureHtml += pictureTemplate({url: val.url, name: val.name, answer: answer})
-    })
+    if (gameMode === 'default') {
+      $.each(chosenArr, function(i, val) {
+        var answer;
+        val.correct ? answer="correct" : answer="incorrect"
+        pictureHtml += pictureTemplate({url: val.url, name: val.name, answer: answer})
+      })
+    } else {
+      $.each(chosenArr, function(i, val) {
+        var answer;
+        val.correct ? answer="correct" : answer="incorrect"
+        pictureHtml += nameTemplate({name: val.name, answer: answer})
+      })
+    }
     $picturesContainer.html(pictureHtml)
     overlayClickListener();
     correctClickListener();
