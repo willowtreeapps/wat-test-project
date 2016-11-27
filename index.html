@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="styles/main.css">
         <script src="scripts/vendor/modernizr.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
-        
+
     </head>
     <body id="index-page">
         <header>
@@ -29,7 +29,11 @@
 
         <section id="pictures-container">
             <script class="picture-template" type="text/x-handlebars-template">
-                <div class="single-pic-container"><img src={{url}} name="{{name}}" class="picture"><div class="overlay {{answer}}"></div><h3 class="name-text">{{name}}</h3></div>
+                <div class="single-pic-container">
+                    <img src={{url}} name="{{name}}" class="picture">
+                    <div class="overlay {{answer}}"></div>
+                    <h3 class="name-text">{{name}}</h3>
+                </div>
             </script>
         </section>
 
