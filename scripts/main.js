@@ -39,6 +39,7 @@ var guessingGame = (function($, window, document) {
 
     $.when(apiCall).done(function(response) {
       list = response;
+      fixNameTypos(list);
       nextQuestion();
     })
   }
@@ -86,6 +87,13 @@ var guessingGame = (function($, window, document) {
     })
   }
 
+  var fixNameTypos = function(list) {
+    var nameRegEx = /[^a-zA-Z\s-]|[-]$/;
+    list = list.map(function(val, i) {
+      val.name = val.name.replace(nameRegEx, '')
+    })
+  }
+
   var renderQuestion = function(person) {
     var createdQuestion = questionTemplate({name: person.name})
     $questionContainer.html(createdQuestion)
@@ -107,6 +115,10 @@ var guessingGame = (function($, window, document) {
     init()
   })
 
+}(window.jQuery, window, document))
+
+var reverseGame = (function($, window, document) {
+  
 }(window.jQuery, window, document))
 
 var statsModule = (function($, window, document) {
