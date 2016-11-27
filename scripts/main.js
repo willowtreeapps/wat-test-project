@@ -90,6 +90,7 @@ var guessingGame = (function($, window, document) {
     $('.overlay').on('click', function(e) {
       $(this).fadeTo("slow", 0.7).siblings('.name-text').fadeTo("slow", 1)
       statsModule.incrementStats($(this))
+      $(this).off('click');
     })
   }
 
