@@ -21,6 +21,23 @@
             <h1>The Willow Tree name game!</h1>
         </header>
 
+        <table id="stats-container">
+            <script class="stats-template" type="text/x-handlebars-template">
+                <tr id="correct-guesses">
+                    <td>Correct: </td>
+                    <td>{{correctNum}}</td>
+                </tr>                
+                <tr id="incorrect-guesses">
+                    <td>Incorrect: </td>
+                    <td>{{incorrectNum}}</td>
+                </tr>                
+                <tr id="average-guesses">
+                    <td>Average: </td>
+                    <td>{{averageNum}}</td>
+                </tr>
+            </script>
+        </table>
+
         <section id="question-container">
             <script class="question-template" type="text/x-handlebars-template">
                 <h2 id="question-text">Who is {{name}}?</h2>

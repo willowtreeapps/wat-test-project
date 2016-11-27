@@ -54,3 +54,9 @@ header {
   opacity: 0;
   background: rgba(191,63,63,0.5);
 }
+
+#stats-container {
+  border: 1px solid black;
+  position: absolute;
+  margin-top: -50px;
+}

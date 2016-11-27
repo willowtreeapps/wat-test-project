@@ -82,6 +82,7 @@ var guessingGame = (function($, window, document) {
   var overlayClickListener = function() {
     $('.overlay').on('click', function(e) {
       $(this).fadeTo("slow", 0.7).siblings('.name-text').fadeTo("slow", 1)
+      statsModule.incrementStats($(this))
     })
   }
 
@@ -106,4 +107,55 @@ var guessingGame = (function($, window, document) {
     init()
   })
 
+}(window.jQuery, window, document))
+
+var statsModule = (function($, window, document) {
+  
+  var correct = 0;
+  var incorrect = 0;
+
+  var statsTemplate, statsContainer;
+
+  var init = function() {
+    cacheDom();
+    renderStats();
+  }
+
+  var cacheDom = function() {
+    $statsContainer = $('#stats-container')
+    statsTemplate = Handlebars.compile($statsContainer.find('.stats-template').html())
+  }
+
+  var renderStats = function() {
+    var statsHtml = statsTemplate({correctNum: correct, incorrectNum: incorrect, averageNum: average()})
+    $statsContainer.html(statsHtml)
+  }
+
+  var average = function() {
+    if (correct === 0 || incorrect === 0) {
+      return '∞';
+    }
+    var roundedNum = Math.round(((correct+incorrect)/correct) * 100)/100;
+    return roundedNum
+  }
+
+  var incrementStats = function($element) {
+    $element.hasClass("incorrect") ? incorrect++ : correct++
+    console.log('correct: ', correct)
+    console.log('incorrect: ', incorrect)
+    console.log(average())
+    renderStats();
+  }
+
+  $(function() {
+    init();
+  })
+
+
+  return {
+    correct: correct,
+    incorrect: incorrect,
+    average: average,
+    incrementStats: incrementStats
+  }
 }(window.jQuery, window, document))
