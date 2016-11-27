@@ -23,7 +23,7 @@ var guessingGame = (function($, window, document) {
     gameModeListener();
   }
 
-  var $ui, $pictureContainer, $questionContainer, $defaultLink, $reverseLink, questionTemplate, pictureTemplate, list, nameTemplate;
+  var $ui, $pictureContainer, $questionContainer, $defaultLink, $reverseLink, questionTemplate, questionTemplatePic, pictureTemplate, list, nameTemplate;
   var gameMode = 'default';
 
   var cacheDom = function () {
@@ -34,6 +34,7 @@ var guessingGame = (function($, window, document) {
     $reverseLink = $ui.find('.reverse');
     nameTemplate = Handlebars.compile($picturesContainer.find('.name-template').html());
     questionTemplate = Handlebars.compile($questionContainer.find('.question-template').html());
+    questionTemplatePic = Handlebars.compile($questionContainer.find('.question-template-pic').html());
     pictureTemplate = Handlebars.compile($picturesContainer.find('.picture-template').html());
   }
 
@@ -97,11 +98,20 @@ var guessingGame = (function($, window, document) {
       e.preventDefault()
       var targetMode = $(e.target).attr('class');
       gameMode = targetMode;
-      console.log('on link click: ', gameMode)
       $reverseLink.parent().removeClass('active')
       $defaultLink.parent().removeClass('active')
       $(e.target).parent().addClass('active');
       nextQuestion();
+    })
+  }
+
+  var keyboardListeners = function() {
+    var possibleAnswers = $picturesContainer.find('.single-pic-container')
+    possibleAnswers.each(function(i, val) {
+      var numericKey = (i + 1).toString();
+      Mousetrap.bind(numericKey, function() {
+        var targetOverlay = $(val).find('.overlay').click();
+      })
     })
   }
 
@@ -116,10 +126,8 @@ var guessingGame = (function($, window, document) {
     if (gameMode === 'default') {
       var createdQuestion = questionTemplate({name: person.name})      
     } else {
-      var createdQuestion = questionTemplate({name: 'this', url: person.url})
+      var createdQuestion = questionTemplatePic({url: person.url})
     }
-
-    console.log('on refresh', gameMode)
     $questionContainer.html(createdQuestion)
   }
 
@@ -141,16 +149,13 @@ var guessingGame = (function($, window, document) {
     $picturesContainer.html(pictureHtml)
     overlayClickListener();
     correctClickListener();
+    keyboardListeners();
   }
 
   $(function() {
     init()
   })
 
-}(window.jQuery, window, document))
-
-var reverseGame = (function($, window, document) {
-  
 }(window.jQuery, window, document))
 
 var statsModule = (function($, window, document) {
@@ -185,9 +190,6 @@ var statsModule = (function($, window, document) {
 
   var incrementStats = function($element) {
     $element.hasClass("incorrect") ? incorrect++ : correct++
-    console.log('correct: ', correct)
-    console.log('incorrect: ', incorrect)
-    console.log(average())
     renderStats();
   }
 
@@ -202,4 +204,5 @@ var statsModule = (function($, window, document) {
     average: average,
     incrementStats: incrementStats
   }
+
 }(window.jQuery, window, document))

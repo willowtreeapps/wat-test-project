@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="styles/bootstrap.css">
         <link rel="stylesheet" href="styles/main.css">
         <script src="scripts/vendor/modernizr.min.js"></script>
+        <script src="scripts/vendor/mousetrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
 
     </head>
@@ -20,7 +21,7 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href='#' class="default" title="one name, five pictures">Name Game</a></li>
+                    <li class="active"><a href='#' class="default" title="one name, five pictures">Default</a></li>
                     <li><a href='#' class="reverse" title="five names, one picture">Reverse</a></li>
                 </ul>
             </div>
@@ -46,6 +47,9 @@
         <section id="question-container">
             <script class="question-template" type="text/x-handlebars-template">
                 <h2 id="question-text">Who is {{name}}?</h2>
+            </script>
+            <script class="question-template-pic" type="text/x-handlebars-template">
+                <h2 id="question-text">Who is this?</h2>
                 <img src={{url}} />
             </script>
         </section>
