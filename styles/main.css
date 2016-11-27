@@ -1,5 +1,5 @@
-body {
-
+.navbar-inverse {
+  background-color: #222;
 }
 
 header {
@@ -10,7 +10,9 @@ header {
 
 #question-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 #pictures-container {
@@ -22,6 +24,7 @@ header {
 .single-pic-container {
   margin: 5px;
   position: relative;
+  cursor: pointer;
 }
 
 .name-text {
@@ -58,5 +61,5 @@ header {
 #stats-container {
   border: 1px solid black;
   position: absolute;
-  margin-top: -50px;
+  margin: -10px 0 0 15px;
 }

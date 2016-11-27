@@ -17,9 +17,14 @@
 
     </head>
     <body id="index-page">
-        <header>
-            <h1>The Willow Tree name game!</h1>
-        </header>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href='#' class="default" title="one name, five pictures">Name Game</a></li>
+                    <li><a href='#' class="reverse" title="five names, one picture">Reverse</a></li>
+                </ul>
+            </div>
+        </nav>
 
         <table id="stats-container">
             <script class="stats-template" type="text/x-handlebars-template">
@@ -41,13 +46,15 @@
         <section id="question-container">
             <script class="question-template" type="text/x-handlebars-template">
                 <h2 id="question-text">Who is {{name}}?</h2>
+                <img src={{url}} />
+
             </script>
         </section>
 
         <section id="pictures-container">
             <script class="picture-template" type="text/x-handlebars-template">
                 <div class="single-pic-container">
-                    <img src={{url}} name="{{name}}" class="picture">
+                    <img src={{url}} name="{{name}}"" class="picture">
                     <div class="overlay {{answer}}"></div>
                     <h3 class="name-text">{{name}}</h3>
                 </div>

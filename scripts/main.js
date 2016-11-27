@@ -20,14 +20,18 @@ var guessingGame = (function($, window, document) {
   var init = function () {
     cacheDom();
     getNames();
+    gameModeListener();
   }
 
-  var $ui, $pictureContainer, $questionContainer, questionTemplate, pictureTemplate, list;
+  var $ui, $pictureContainer, $questionContainer, $defaultLink, $reverseLink, questionTemplate, pictureTemplate, list;
+  var gameMode = 'default';
 
   var cacheDom = function () {
     $ui = $('body');
     $picturesContainer = $ui.find('#pictures-container');
     $questionContainer = $ui.find('#question-container');
+    $defaultLink = $ui.find('.default')
+    $reverseLink = $ui.find('.reverse')
     questionTemplate = Handlebars.compile($questionContainer.find('.question-template').html());
     pictureTemplate = Handlebars.compile($picturesContainer.find('.picture-template').html());
   }
@@ -84,6 +88,17 @@ var guessingGame = (function($, window, document) {
     $('.overlay').on('click', function(e) {
       $(this).fadeTo("slow", 0.7).siblings('.name-text').fadeTo("slow", 1)
       statsModule.incrementStats($(this))
+    })
+  }
+
+  var gameModeListener = function() {
+    $('.nav').click(function(e) {
+      e.preventDefault()
+      var targetMode = $(e.target).attr('class');
+      gameMode = targetMode;
+      $reverseLink.parent().removeClass('active')
+      $defaultLink.parent().removeClass('active')
+      $(e.target).parent().addClass('active');
     })
   }
 
