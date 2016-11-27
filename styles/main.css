@@ -23,3 +23,34 @@ header {
   margin: 5px;
   position: relative;
 }
+
+.name-text {
+  position: absolute;
+  width: 100%;
+  color: white;
+  text-align: center;
+  bottom: 5px;
+  opacity: 0;
+}
+
+.correct {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  background: rgba(63,191,63,0.5);
+}
+
+.incorrect {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  background: rgba(191,63,63,0.5);
+}

@@ -71,6 +71,20 @@ var guessingGame = (function($, window, document) {
     renderPictures(chosenOnes) 
   }
 
+  var correctClickListener = function() {
+    $('.correct').on('click', function(e) {
+      setTimeout(function() {
+        nextQuestion()        
+      }, 1000);
+    })
+  }
+
+  var overlayClickListener = function() {
+    $('.overlay').on('click', function(e) {
+      $(this).fadeTo("slow", 0.7).siblings('.name-text').fadeTo("slow", 1)
+    })
+  }
+
   var renderQuestion = function(person) {
     var createdQuestion = questionTemplate({name: person.name})
     $questionContainer.html(createdQuestion)
@@ -84,6 +98,8 @@ var guessingGame = (function($, window, document) {
       pictureHtml += pictureTemplate({url: val.url, name: val.name, answer: answer})
     })
     $picturesContainer.html(pictureHtml)
+    overlayClickListener();
+    correctClickListener();
   }
 
   $(function() {
