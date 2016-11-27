@@ -21,12 +21,14 @@ var guessingGame = (function($, window, document) {
     cacheDom();
   }
 
-  var $ui, $pictureContainer, $questionContainer;
+  var $ui, $pictureContainer, $questionContainer, questionTemplate, pictureTemplate, list;
 
   var cacheDom = function () {
     $ui = $('body');
     $picturesContainer = $ui.find('#pictures-container');
     $questionContainer = $ui.find('#question-container');
+    questionTemplate = Handlebars.compile($questionContainer.find('.question-template').html());
+    pictureTemplate = Handlebars.compile($picturesContainer.find('.picture-template').html());
   }
 
   var getNames = function() {

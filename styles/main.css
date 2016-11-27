@@ -1,3 +1,25 @@
 #index .container {
 	margin-top: 50px;
 }
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#question-container {
+  display: flex;
+  justify-content: center;
+}
+
+#pictures-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.single-pic-container {
+  margin: 5px;
+  position: relative;
+}
