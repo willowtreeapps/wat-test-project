@@ -8,6 +8,32 @@ header {
   justify-content: center;
 }
 
+@media (max-width: 540px) {
+  #question-text {
+    margin-top: 60px;
+  }
+}
+
+#stats-container {
+  position: absolute;
+  margin: -10px 0 0 15px;
+}
+
+#correct-guesses {
+  color: green;
+  font-weight: bold;
+}
+
+#incorrect-guesses {
+  color: red;
+  font-weight: bold;
+}
+
+#average-guesses {
+  color: black;
+  font-weight: bold;
+}
+
 #question-container {
   display: flex;
   flex-direction: column;
@@ -74,8 +100,3 @@ header {
   background: rgba(191,63,63,0.5);
 }
 
-#stats-container {
-  border: 1px solid black;
-  position: absolute;
-  margin: -10px 0 0 15px;
-}
