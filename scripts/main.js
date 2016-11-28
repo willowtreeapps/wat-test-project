@@ -21,21 +21,26 @@ var guessingGame = (function($, window, document) {
     cacheDom();
     getNames();
     gameModeListener();
+    mattModeListener();
   }
 
-  var $ui, $pictureContainer, $questionContainer, $defaultLink, $reverseLink, questionTemplate, questionTemplatePic, pictureTemplate, list, nameTemplate;
-  var gameMode = 'default';
+  var $ui, $answersContainer, $questionContainer, $defaultLink, $reverseLink, $mattLink, questionTemplate, questionTemplatePic, pictureTemplate, list, nameTemplate;
+  var gameMode = {
+    type: 'default',
+    matt: false
+  }
 
   var cacheDom = function () {
     $ui = $('body');
-    $picturesContainer = $ui.find('#pictures-container');
+    $answersContainer = $ui.find('#answers-container');
     $questionContainer = $ui.find('#question-container');
     $defaultLink = $ui.find('.default');
     $reverseLink = $ui.find('.reverse');
-    nameTemplate = Handlebars.compile($picturesContainer.find('.name-template').html());
+    $mattLink = $ui.find('.matt');
+    nameTemplate = Handlebars.compile($answersContainer.find('.name-template').html());
     questionTemplate = Handlebars.compile($questionContainer.find('.question-template').html());
     questionTemplatePic = Handlebars.compile($questionContainer.find('.question-template-pic').html());
-    pictureTemplate = Handlebars.compile($picturesContainer.find('.picture-template').html());
+    pictureTemplate = Handlebars.compile($answersContainer.find('.picture-template').html());
   }
 
   var getNames = function() {
@@ -72,7 +77,12 @@ var guessingGame = (function($, window, document) {
   }
 
   var nextQuestion = function() {
-    var chosenOnes = randomPeople(list)
+    if(gameMode.matt) {
+      var currentList = onlyMatts(list);
+    } else {
+      var currentList = list;
+    }
+    var chosenOnes = randomPeople(currentList)
     var correctPerson = chooseWinner(chosenOnes)
     renderQuestion(correctPerson)
     renderPictures(chosenOnes) 
@@ -95,10 +105,10 @@ var guessingGame = (function($, window, document) {
   }
 
   var gameModeListener = function() {
-    $('.nav').click(function(e) {
+    $('.game-mode').click(function(e) {
       e.preventDefault()
-      var targetMode = $(e.target).attr('class');
-      gameMode = targetMode;
+      var targetMode = $(e.target).attr('name');
+      gameMode.type = targetMode;
       $reverseLink.parent().removeClass('active')
       $defaultLink.parent().removeClass('active')
       $(e.target).parent().addClass('active');
@@ -106,14 +116,38 @@ var guessingGame = (function($, window, document) {
     })
   }
 
+  var mattModeListener = function() {
+    $mattLink.on('click', function(e) {
+      e.preventDefault();
+      $mattLink.parent().toggleClass('active');
+      if ($mattLink.parent().hasClass('active')) {
+        gameMode.matt = true;
+      } else {
+        gameMode.matt = false;
+      }
+      nextQuestion();
+    })
+  }
+
   var keyboardListeners = function() {
-    var possibleAnswers = $picturesContainer.find('.single-pic-container')
+    var possibleAnswers = $answersContainer.find('.single-item-container')
     possibleAnswers.each(function(i, val) {
       var numericKey = (i + 1).toString();
       Mousetrap.bind(numericKey, function() {
         var targetOverlay = $(val).find('.overlay').click();
       })
     })
+  }
+
+  var onlyMatts = function(list) {
+    var mattRegEx = /^(Matt)|^(Mat)/;
+    var mattList = []
+    list.map(function(val, i) {
+      if(mattRegEx.test(val.name)) {
+        mattList.push(val)
+      }
+    })
+    return mattList;
   }
 
   var fixNameTypos = function(list) {
@@ -124,7 +158,7 @@ var guessingGame = (function($, window, document) {
   }
 
   var renderQuestion = function(person) {
-    if (gameMode === 'default') {
+    if (gameMode.type === 'default') {
       var createdQuestion = questionTemplate({name: person.name})      
     } else {
       var createdQuestion = questionTemplatePic({url: person.url})
@@ -134,20 +168,23 @@ var guessingGame = (function($, window, document) {
 
   var renderPictures = function(chosenArr) {  
     var pictureHtml = ""
-    if (gameMode === 'default') {
+    if (gameMode.type === 'default') {
       $.each(chosenArr, function(i, val) {
         var answer;
         val.correct ? answer="correct" : answer="incorrect"
         pictureHtml += pictureTemplate({url: val.url, name: val.name, answer: answer})
+        // reset value for future games
+        val.correct = false;
       })
     } else {
       $.each(chosenArr, function(i, val) {
         var answer;
         val.correct ? answer="correct" : answer="incorrect"
         pictureHtml += nameTemplate({name: val.name, answer: answer})
+        val.correct = false;
       })
     }
-    $picturesContainer.html(pictureHtml)
+    $answersContainer.html(pictureHtml)
     overlayClickListener();
     correctClickListener();
     keyboardListeners();

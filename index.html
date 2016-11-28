@@ -21,8 +21,9 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href='#' class="default" title="one name, five pictures">Default</a></li>
-                    <li><a href='#' class="reverse" title="five names, one picture">Reverse</a></li>
+                    <li class="active"><a href='#' class="default game-mode" name="default" title="one name, five pictures">Default Mode</a></li>
+                    <li><a href='#' class="reverse game-mode" name="reverse" title="five names, one picture">Reverse Mode</a></li>
+                    <li><a href='#' class="matt" title="only Mat(t)s">Mat(t) Mode</a></li>
                 </ul>
             </div>
         </nav>
@@ -54,16 +55,16 @@
             </script>
         </section>
 
-        <section id="pictures-container">
+        <section id="answers-container">
             <script class="picture-template" type="text/x-handlebars-template">
-                <div class="single-pic-container">
+                <div class="single-pic-container single-item-container">
                     <img src={{url}} name="{{name}}"" class="picture">
                     <div class="overlay {{answer}}"></div>
                     <h3 class="name-text">{{name}}</h3>
                 </div>
             </script>
             <script class="name-template" type="text/x-handlebars-template">
-                <div class="single-name-container">
+                <div class="single-name-container single-item-container">
                     <h3 class="name-answer">{{name}}</h3>
                     <div class="overlay {{answer}}"></div>
                 </div>
