@@ -4,9 +4,18 @@ var peopleApi = (function() {
     return $.ajax({
         url: 'http://namegame.willowtreemobile.com:2000',
         success: function(people) {
-            cb(people)
+            var fixedList = fixNameTypos(people)
+            cb(fixedList)
         }
     });
+  }
+
+  var fixNameTypos = function(list) {
+    var nameRegEx = /[^a-zA-Z\s-]|[-]$/;
+    var fixedList = list.map(function(val, i) {
+      val.name = val.name.replace(nameRegEx, '');
+    })
+    return fixedList;
   }
 
   return {
@@ -15,16 +24,14 @@ var peopleApi = (function() {
 
 }())
 
-var guessingGame = (function($, window, document) {
+var nameGame = (function($, window, document) {
 
   var init = function () {
     cacheDom();
     getNames();
-    gameModeListener();
-    mattModeListener();
   }
 
-  var $ui, $answersContainer, $questionContainer, $defaultLink, $reverseLink, $mattLink, questionTemplate, questionTemplatePic, pictureTemplate, list, nameTemplate;
+  var $ui, $answersContainer, $questionContainer, questionTemplate, questionTemplatePic, pictureTemplate, list, nameTemplate;
   var gameMode = {
     type: 'default',
     matt: false
@@ -34,9 +41,6 @@ var guessingGame = (function($, window, document) {
     $ui = $('body');
     $answersContainer = $ui.find('#answers-container');
     $questionContainer = $ui.find('#question-container');
-    $defaultLink = $ui.find('.default');
-    $reverseLink = $ui.find('.reverse');
-    $mattLink = $ui.find('.matt');
     nameTemplate = Handlebars.compile($answersContainer.find('.name-template').html());
     questionTemplate = Handlebars.compile($questionContainer.find('.question-template').html());
     questionTemplatePic = Handlebars.compile($questionContainer.find('.question-template-pic').html());
@@ -50,7 +54,6 @@ var guessingGame = (function($, window, document) {
 
     $.when(apiCall).done(function(response) {
       list = response;
-      fixNameTypos(list);
       nextQuestion();
     })
   }
@@ -77,7 +80,7 @@ var guessingGame = (function($, window, document) {
   }
 
   var nextQuestion = function() {
-    if(gameMode.matt) {
+    if(gameModeModule.matt) {
       var currentList = onlyMatts(list);
     } else {
       var currentList = list;
@@ -104,31 +107,6 @@ var guessingGame = (function($, window, document) {
     })
   }
 
-  var gameModeListener = function() {
-    $('.game-mode').click(function(e) {
-      e.preventDefault()
-      var targetMode = $(e.target).attr('name');
-      gameMode.type = targetMode;
-      $reverseLink.parent().removeClass('active')
-      $defaultLink.parent().removeClass('active')
-      $(e.target).parent().addClass('active');
-      nextQuestion();
-    })
-  }
-
-  var mattModeListener = function() {
-    $mattLink.on('click', function(e) {
-      e.preventDefault();
-      $mattLink.parent().toggleClass('active');
-      if ($mattLink.parent().hasClass('active')) {
-        gameMode.matt = true;
-      } else {
-        gameMode.matt = false;
-      }
-      nextQuestion();
-    })
-  }
-
   var keyboardListeners = function() {
     var possibleAnswers = $answersContainer.find('.single-item-container')
     possibleAnswers.each(function(i, val) {
@@ -150,15 +128,8 @@ var guessingGame = (function($, window, document) {
     return mattList;
   }
 
-  var fixNameTypos = function(list) {
-    var nameRegEx = /[^a-zA-Z\s-]|[-]$/;
-    list = list.map(function(val, i) {
-      val.name = val.name.replace(nameRegEx, '')
-    })
-  }
-
   var renderQuestion = function(person) {
-    if (gameMode.type === 'default') {
+    if (gameModeModule.type === 'default') {
       var createdQuestion = questionTemplate({name: person.name})      
     } else {
       var createdQuestion = questionTemplatePic({url: person.url})
@@ -168,7 +139,7 @@ var guessingGame = (function($, window, document) {
 
   var renderPictures = function(chosenArr) {  
     var pictureHtml = ""
-    if (gameMode.type === 'default') {
+    if (gameModeModule.type === 'default') {
       $.each(chosenArr, function(i, val) {
         var answer;
         val.correct ? answer="correct" : answer="incorrect"
@@ -193,6 +164,66 @@ var guessingGame = (function($, window, document) {
   $(function() {
     init()
   })
+
+  return {
+    nextQuestion: nextQuestion
+  }
+
+}(window.jQuery, window, document))
+
+// GAME MODE MODULE
+
+var gameModeModule = (function($, window, document) {
+  
+
+  var init = function() {
+    cacheDom();
+    gameModeListener();
+    mattModeListener();
+  }
+
+  var gameMode = {
+    type: 'default',
+    matt: false
+  }
+  var $defaultLink, $reverseLink, $mattLink;
+
+  var cacheDom = function() {
+    $defaultLink = $('.default');
+    $reverseLink = $('.reverse');
+    $mattLink = $('.matt');
+  }
+
+  var gameModeListener = function() {
+    $('.game-mode').click(function(e) {
+      e.preventDefault()
+      var targetMode = $(e.target).attr('name');
+      gameMode.type = targetMode;
+      $reverseLink.parent().removeClass('active')
+      $defaultLink.parent().removeClass('active')
+      $(e.target).parent().addClass('active');
+      nameGame.nextQuestion();
+    })
+  }
+
+  var mattModeListener = function() {
+    $mattLink.on('click', function(e) {
+      e.preventDefault();
+      $mattLink.parent().toggleClass('active');
+      if ($mattLink.parent().hasClass('active')) {
+        gameMode.matt = true;
+      } else {
+        gameMode.matt = false;
+      }
+      nameGame.nextQuestion();
+    })
+  }
+
+  $(function() {
+    init();
+  })
+
+  return gameMode;
 
 }(window.jQuery, window, document))
 
