@@ -1,3 +1,108 @@
-#index .container {
-	margin-top: 50px;
+/*GENERAL*/
+
+.navbar-inverse {
+  background-color: #222;
 }
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 540px) {
+  #question-text {
+    margin-top: 60px;
+  }
+}
+
+/*STATS MODULE*/
+
+#stats-container {
+  position: absolute;
+  margin: -10px 0 0 15px;
+}
+
+#correct-guesses {
+  color: green;
+  font-weight: bold;
+}
+
+#incorrect-guesses {
+  color: red;
+  font-weight: bold;
+}
+
+#average-guesses {
+  color: black;
+  font-weight: bold;
+}
+
+/*GAME MODULE*/
+
+#question-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#answers-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.single-pic-container {
+  margin: 5px;
+  position: relative;
+  cursor: pointer;
+  flex-basis: 250px;
+}
+
+.single-name-container {
+  margin: 5px;
+  position: relative;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.name-answer {
+  margin: 0 5px 0 5px;
+}
+
+.name-text {
+  position: absolute;
+  width: 100%;
+  color: white;
+  text-align: center;
+  bottom: 5px;
+  opacity: 0;
+}
+
+.overlay {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  border-radius: 10px;
+}
+
+.correct {
+  background: rgba(63,191,63,0.5);
+}
+
+.incorrect {
+  background: rgba(191,63,63,0.5);
+}
+

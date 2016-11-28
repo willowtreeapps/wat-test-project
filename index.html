@@ -13,20 +13,63 @@
         <link rel="stylesheet" href="styles/bootstrap.css">
         <link rel="stylesheet" href="styles/main.css">
         <script src="scripts/vendor/modernizr.min.js"></script>
+        <script src="scripts/vendor/mousetrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
+
     </head>
     <body id="index-page">
-        <div class="container">
-            <div class="hero-unit">
-                <h1>Wotcha!</h1>
-                <p>You now have</p>
-                <ul>
-                    <li>HTML5 Boilerplate</li>
-                    <li>Twitter Bootstrap</li>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href='#' class="default game-mode" name="default" title="one name, five pictures">Default</a></li>
+                    <li><a href='#' class="reverse game-mode" name="reverse" title="five names, one picture">Reverse</a></li>
+                    <li><a href='#' class="matt" title="only Mat(t)s">Mat(t)</a></li>
                 </ul>
-                <p>installed.</p>
-                <h3>Enjoy coding!</h3>
             </div>
-        </div>
+        </nav>
+
+        <table id="stats-container">
+            <script class="stats-template" type="text/x-handlebars-template">
+                <tr id="correct-guesses">
+                    <td>Correct: </td>
+                    <td>{{correctNum}}</td>
+                </tr>                
+                <tr id="incorrect-guesses">
+                    <td>Incorrect: </td>
+                    <td>{{incorrectNum}}</td>
+                </tr>                
+                <tr id="average-guesses">
+                    <td>Average: </td>
+                    <td>{{averageNum}}</td>
+                </tr>
+            </script>
+        </table>
+
+        <section id="question-container">
+            <script class="question-template" type="text/x-handlebars-template">
+                <h2 id="question-text">Who is {{name}}?</h2>
+            </script>
+            <script class="question-template-pic" type="text/x-handlebars-template">
+                <h2 id="question-text">Who is this?</h2>
+                <img src={{url}} />
+            </script>
+        </section>
+
+        <section id="answers-container">
+            <script class="picture-template" type="text/x-handlebars-template">
+                <div class="single-pic-container single-item-container">
+                    <img src={{url}} name="{{name}}"" class="picture">
+                    <div class="overlay {{answer}}"></div>
+                    <h3 class="name-text">{{name}}</h3>
+                </div>
+            </script>
+            <script class="name-template" type="text/x-handlebars-template">
+                <div class="single-name-container single-item-container">
+                    <h3 class="name-answer">{{name}}</h3>
+                    <div class="overlay {{answer}}"></div>
+                </div>
+            </script>
+        </section>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="scripts/vendor/jquery.min.js"><\/script>')</script>
