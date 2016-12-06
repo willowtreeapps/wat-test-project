@@ -1,3 +1,46 @@
 #index .container {
 	margin-top: 50px;
 }
+
+#pageWrapper {
+	display: block;
+	margin: auto;
+	text-align: center;
+}
+
+#menuWrapper {
+	border-style: double;
+	margin-top: 20px;
+	padding: 10px;
+}
+
+#index-page {
+	text-align: center;
+}
+
+#employeeContainer {
+	display: block;
+}
+
+#employeeContainer img {
+	margin-left: 5px;
+	margin-right: 5px;
+	float: left;
+	box-sizing: border-box;
+	position: relative;
+	width: 18%;
+}
+
+#employeeContainer img:hover {
+	border: 3px solid green;
+}
+
+#customContainer table {
+	width: 100%;
+}
+
+.stopwatch {
+	float: right;
+	width: 50%;
+}
+
