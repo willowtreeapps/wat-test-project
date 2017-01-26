@@ -1,5 +1,5 @@
 $.ajax({
-    url: 'http://namegame.willowtreemobile.com:2000',
+    url: 'https://willowtreeapps.com/api/v1.0/profiles/',
     success: function(people) {
         console.log(people);
     }
