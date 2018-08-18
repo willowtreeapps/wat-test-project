@@ -79,10 +79,6 @@ var App = React.createClass({
         };
     },
 
-    time: function() {
-
-    },
-
     play: function(prefix) {
         prefix = prefix || '';
 
@@ -115,7 +111,6 @@ var App = React.createClass({
                 <div onClick={this.play}> Play </div>
                 <div onClick={_.partial(this.play, 'mat')}> Mat* </div>
                 <div onClick={_.partial(this.play, 'm')}> M* </div>
-                <div onClick={this.time}>Time Trial</div>
 
                 {game}
             </div>
