@@ -99,7 +99,28 @@ var App = React.createClass({
 
         this.setState({ people: rand });
     },
+	
+    play_suffix: function(suffix) {
+        suffix = suffix || '';
 
+        var rand = _(people)
+                        .filter(function(p) {
+                            var reg = new RegExp(suffix+'$', 'i');
+                            return reg.test(p.lastName);
+                        })
+                        .each(function(p) {
+                            p.selected = false;
+                        })
+                        .shuffle()
+                        .first(5)
+                        .value();
+
+        rand[0].selected = true;
+        rand = _.shuffle(rand);
+
+        this.setState({ people: rand });
+    },
+	
     render: function() {
         var game;
         if (this.state.people.length) {
