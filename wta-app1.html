@@ -4,7 +4,7 @@
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800|Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'>
 <link href="https://wta-namegame.herokuapp.com/styles.css" media="screen, projection" rel="stylesheet" type="text/css" />
 
-		<!-- Markup -->
+<!-- Markup -->
 <div id="app-wrapper">
     <div id="question-wrapper"></div>
     <div id="face-wrapper"></div>
@@ -25,8 +25,9 @@
 
 // Our list of people we get back from the server
 var people = [];
-
+// Define "Face" elements: headshots for the user to click on
 var Face = React.createClass({
+    // Let faces be in a different state depending on whether the user has clicked on them
     getInitialState: function() {
         return {clicked: false};
     },
@@ -34,7 +35,8 @@ var Face = React.createClass({
     onClick: function() {
         this.setState({clicked: true});
     },
-
+    // Allow the face elements to be displayed differently based on whether the user has clicked on them
+	// and whether they have selected the right person
     render: function() {
         var classes = React.addons.classSet({
             'name': true,
@@ -42,7 +44,7 @@ var Face = React.createClass({
             'right': this.state.clicked && this.props.selected,
             'wrong': this.state.clicked && !this.props.selected
         });
-
+        // Create the face element, including the image and the employee's name, hidden until clicked
         return (
             <article className="employee" onClick={this.onClick}>
                 <img src={ this.props.url } />
@@ -55,12 +57,12 @@ var Face = React.createClass({
 });
 
 var Game = React.createClass({
-
+    // Function to render the five faces for the user to choose from
     render: function() {
         var faces = this.props.people.map(function(p) {
             return <Face key={Math.random()} url={p.headshot.url} name={p.firstName + ' ' + p.lastName} selected={p.selected}/>;
         });
-
+        // Identify the employee meant to be used in the prompt, then ask user who the given employee is 
         var selectedFace = _.find(this.props.people, {selected: true});
 
         return (
@@ -71,17 +73,18 @@ var Game = React.createClass({
         );
     }
 });
-
+// Initialize the app with an empty list of employees; this is empty until the user clicks a button
 var App = React.createClass({
     getInitialState: function() {
         return {
             people: []
         };
     },
-
+    // Function to select a person based on the first letter(s) of the first name
     play: function(prefix) {
         prefix = prefix || '';
-
+        // Filter out names which do not match the given prefix, shuffle the remaining names,
+		// and take the first five people
         var rand = _(people)
                         .filter(function(p) {
                             var reg = new RegExp('^'+prefix, 'i');
@@ -93,16 +96,17 @@ var App = React.createClass({
                         .shuffle()
                         .first(5)
                         .value();
-
+        // Set the first of these five to be the employee the user is asked to identify
         rand[0].selected = true;
         rand = _.shuffle(rand);
 
         this.setState({ people: rand });
     },
-	
+	// Function to select a person based on the last letter of the last name
     play_suffix: function(suffix) {
         suffix = suffix || '';
-
+        // Filter out names which do not match the given suffix, shuffle the remaining names,
+		// and take the first five people
         var rand = _(people)
                         .filter(function(p) {
                             var reg = new RegExp(suffix+'$', 'i');
@@ -114,13 +118,13 @@ var App = React.createClass({
                         .shuffle()
                         .first(5)
                         .value();
-
+        // Set the first of these five to be the employee the user is prompted to identify
         rand[0].selected = true;
         rand = _.shuffle(rand);
 
         this.setState({ people: rand });
     },
-	
+	// Render the buttons and, if a button has been clicked, render the faces
     render: function() {
         var game;
         if (this.state.people.length) {
@@ -142,7 +146,7 @@ var App = React.createClass({
     }
 });
 
-
+// Render the app within the app-wrapper div:
 var render = function () {
     React.renderComponent(
         <App people={people}/>,
