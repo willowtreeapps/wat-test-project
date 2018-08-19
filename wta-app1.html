@@ -134,6 +134,8 @@ var App = React.createClass({
 	            <div onClick={_.partial(this.play, 'm')}> <button type="button">Name Starting with M</button> </div>
                 <div onClick={_.partial(this.play, 'matt')}> <button type="button">Matt(hew)</button> </div>
 				<div onClick={_.partial(this.play_suffix, 'n')}> <button type="button">Name ending with N</button> </div>
+				<div onClick={_.partial(this.play_suffix, 's')}> <button type="button">Name ending with S</button> </div>
+								
                 {game}
             </div>
         );
