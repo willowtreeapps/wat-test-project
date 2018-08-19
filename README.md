@@ -1,6 +1,6 @@
 # The Namegame
 
-Learning your coworkers names while starting a new job can be very useful. Your test project is to make it happen! We have a simple version hosted at [https://wta-namegame.herokuapp.com/](https://wta-namegame.herokuapp.com/) which you can test. The API is located at [https://willowtreeapps.com/api/v1.0/profiles/](https://willowtreeapps.com/api/v1.0/profiles/).
+Learning your coworkers names while starting a new job can be very useful. Your test project is to make it happen! We have a simple version hosted at [https://wta-namegame.herokuapp.com/](https://wta-namegame.herokuapp.com/) which you can test. The API is located at [https://wta-namegame.herokuapp.com/api/game](https://wta-namegame.herokuapp.com/api/game).
 
 ## Option 1
 
