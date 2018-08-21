@@ -1,6 +1,6 @@
 # The Namegame
 
-Learning your coworkers names while starting a new job can be very useful. Your test project is to make it happen! We have a simple version hosted at [https://wta-namegame.herokuapp.com/](https://wta-namegame.herokuapp.com/) which you can test. The API is located at [https://willowtreeapps.com/api/v1.0/profiles/](https://willowtreeapps.com/api/v1.0/profiles/).
+Learning your coworkers names while starting a new job can be very useful. Your test project is to make it happen! We have a simple version hosted at [https://wta-namegame.herokuapp.com/](https://wta-namegame.herokuapp.com/) which you can test. The API is located at [https://wta-namegame.herokuapp.com/api/game](https://wta-namegame.herokuapp.com/api/game).
 
 ## Option 1
 
@@ -11,7 +11,7 @@ Present the user with five faces and ask them to identify the listed name. This 
 3. Reverse mode. Show five names with one picture.
 4. Keyboard shortcuts. Power users love keyboard shortcuts; maybe add numbers for faces for mouse free fun.
 5. Local scoring. The server might not accept scores, but you can always track it locally. Make metrics of your own and have a leader board!
-6. Mat(t) Mode. Roughly 90% of our co-workers are named Mat(t), so add a challenge mode where you only present the users with a Mat(t).
+6. Matt Mode. Roughly 90% of our co-workers are named Matt, so add a challenge mode where you only present the users with a Matt.
 7. Hint mode. As people wait, faces disappear until only the correct one is left.
 8. Insert your own idea here!
 
