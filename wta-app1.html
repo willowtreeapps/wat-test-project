@@ -155,7 +155,7 @@ var render = function () {
 };
 
 // Fetch the data and start the app
-$.get('https://github.com/bdferr/wat-test-project/WTA-API').then(function(data) {
+$.get('https://wta-namegame.herokuapp.com/api/game').then(function(data) {
     people = data.people;
     render();
 });
