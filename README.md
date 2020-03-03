@@ -1,26 +1,19 @@
-# The Namegame
+# The Namegame for Web
 
-Learning your coworkers names while starting a new job can be very useful. Your test project is to make it happen! We have a simple version hosted at [https://wta-namegame.herokuapp.com/](https://wta-namegame.herokuapp.com/) which you can test. The API is located at [https://willowtreeapps.com/api/v1.0/profiles/](https://willowtreeapps.com/api/v1.0/profiles/).
+Leading scientists have proven, via science, that learning your coworkers names while starting a new job is useful. Your test project is to make it happen!
 
-## Option 1
+## Your mission
 
-Present the user with five faces and ask them to identify the listed name. This is essentially what is working already. To spruce things up, implement a few features of your choice.
+1. Use this [JSON API](https://willowtreeapps.com/api/v1.0/profiles/), which returns a list of employees along with their headshots, as a datasource for the game. A swagger spec for this API will be created soon to use as a reference.
 
-1. Team mode. The API returns people who used to work here too. Current team members have titles and former team members don't.
-2. Stat tracking. How many correct / incorrect attempts did the user make? How long does it take on average for a person to identify the subject?
-3. Reverse mode. Show five names with one picture.
-4. Keyboard shortcuts. Power users love keyboard shortcuts; maybe add numbers for faces for mouse free fun.
-5. Local scoring. The server might not accept scores, but you can always track it locally. Make metrics of your own and have a leader board!
-6. Mat(t) Mode. Roughly 90% of our co-workers are named Mat(t), so add a challenge mode where you only present the users with a Mat(t).
-7. Hint mode. As people wait, faces disappear until only the correct one is left.
-8. Insert your own idea here!
+2. Use [these Figma designs](https://www.figma.com/file/yUzRfmltt1m1UT9UkKL3y6/namegame?node-id=134%3A1026) as a reference for your implementation of the game. Try to match these designs as closely as possible. All assets can be exported from Figma directly following these  [instructions](https://help.figma.com/hc/en-us/articles/360040028114-Getting-Started-with-Exports).
 
-## Option 2
+![Web Main Menu](assets/screenshots/web_home.png)
 
-Feel like taking the path less trodden? Do you know a better way to learn faces than to present five options and a name? Come up with your own memory game!
+3. Clicking “Start Game” on the menu screen will navigate to a new page or route showing the game screen. On the game screen, the game will select 6 employees at random from the list of employees and display their headshots in random order. Out of the 6, the name of one of those random employees will appear at the top.
 
-## Conclusion
+4. The user must select the headshot that belongs to that person. If they guess correct, a message will display saying “Correct!” and a new 6 random employees will be displayed along with another name.
 
-We have provided you with a few files to get you started. Feel free to discard everything and start from scratch. You may use any framework or library you like.
+5. This will continue until a user correctly guesses 5 times. They are then taken to a stats screen which displays the number of correct and incorrect guesses. The user can select the “home” button which takes them back to the splash screen.
 
-If you need a simple http server, we recommend [http-server](https://www.npmjs.org/package/http-server).
+6. You can implement this app however you choose, that said, your Name Game test project will be evaluated according to [this rubric](namegame_web_evaluation_rubric.pdf). 
