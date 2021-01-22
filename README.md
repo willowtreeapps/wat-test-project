@@ -20,7 +20,21 @@ Note: You will need to create a figma account (it’s free) to download the asse
 
 6. You can implement this app however you choose, that said, your Name Game test project will be evaluated according to [this rubric](namegame_web_evaluation_rubric.pdf).
 
-Tooling and Configuration: We recommend that you don’t spend too much time on tooling, as it will not be our focus for evaluating your project. Use whatever frameworks or tools you feel most comfortable with to write your web app! See below if you need some good tools for spinning up a site:
+## What we're looking for
+
+You should demonstrate your abilities in writing accessible applications using semantic HTML, CSS and Javascript. Ideally, we would like to see:
+
+- Custom CSS, as opposed to CSS frameworks.
+- Attention to accessibility concerns.
+- Responsive layouts that adhere to the provided designs. Note that mobile designs are not provided, so do whatever you think makes sense for the mobile layout.
+
+We understand that time is limited, but these bullet points will be especially important for higher-level positions (Senior and higher).
+
+## Tooling and Configuration
+
+We recommend that you don’t spend too much time on tooling, as it will not be our focus for evaluating your project. Use whatever tools you feel most comfortable with to write your web app!
+
+See below if you need some good tools for spinning up a site:
 
 - [Parcel](https://github.com/parcel-bundler/parcel) is a great zero configuration bundler for general purpose web applications.
 - [Next](https://github.com/zeit/next.js) or
